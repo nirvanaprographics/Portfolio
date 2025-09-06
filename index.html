@@ -3,51 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphic Design Portfolio</title>
+    <title>Nirvana ProGraphics | Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Graphic Design Company</h1>
+    <header class="hero">
+        <img src="https://dummyimage.com/120x120/222/fff&text=Logo" alt="Nirvana ProGraphics Logo" class="logo">
+        <h1>Nirvana ProGraphics</h1>
+        <p class="tagline">Creative Branding & Digital Solutions</p>
         <nav>
             <ul>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="scroll-down"></div>
     </header>
 
-    <section id="portfolio">
+    <section id="portfolio" class="fade-in">
         <h2>Our Work</h2>
         <div class="portfolio-items">
-            <!-- Portfolio items will be dynamically inserted here -->
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Branding Sample">
+                <h3>Branding Project</h3>
+                <p>Complete branding for a modern business.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Logo Design">
+                <h3>Logo Design</h3>
+                <p>Creative logo concepts for startups.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Digital Marketing">
+                <h3>Digital Marketing</h3>
+                <p>Social media creatives & campaigns.</p>
+            </div>
         </div>
     </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We are a creative team dedicated to bringing your ideas to life through stunning graphic design.</p>
+    <section id="clients" class="fade-in">
+        <h2>Our Clients</h2>
+        <div class="clients-logos">
+            <!-- Use your real logos here. For now, placeholder images. -->
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Namita" alt="Namita Interiors"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Con-air" alt="Con-air India"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Yaltron" alt="Yaltron Technocraft"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Pundu's" alt="Pundu's Salon"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Koriv" alt="Koriv Studio"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=KJ" alt="KJ Group"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Aikyam" alt="Aikyam Tech Solutions"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Aligned" alt="Aligned Composites"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Beautex" alt="Beautex Makeup Studio"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Creativity" alt="Creativity Polycoats"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Devyani" alt="Devyani Arbat"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Era" alt="Era Infratech"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Krishna" alt="Krishna Homoeopathy"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Precigraph" alt="Precigraph Technologies"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Rivan" alt="Rivan Travels"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Synergy" alt="Synergy Fitness"></div>
+            <div class="client"><img src="https://dummyimage.com/80x80/eee/333&text=Vedira" alt="Vedira Solution"></div>
+        </div>
     </section>
 
-    <section id="contact">
+    <section id="about" class="fade-in">
+        <h2>About Nirvana ProGraphics</h2>
+        <div class="about-content">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Praveen Vidhate" class="about-img">
+            <div>
+                <p>Hello! I'm <strong>Praveen Vidhate</strong>, a passionate graphic designer with 5+ years of experience. At Nirvana ProGraphics, we specialize in creative branding, rebranding, digital marketing, and website design for businesses of all sizes.</p>
+                <p>We have worked with a diverse range of clients, delivering unique and impactful designs that help brands stand out. From logos to full branding solutions, digital marketing, and web design, we are your creative partners.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
         <h2>Contact Us</h2>
         <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
+            <div id="form-message"></div>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2023 Graphic Design Company. All rights reserved.</p>
+        <p>&copy; 2025 Nirvana ProGraphics. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>

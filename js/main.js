@@ -1,38 +1,31 @@
-// This file contains the JavaScript code for the portfolio website. 
-// It handles interactivity, such as form submissions, animations, and any dynamic content updates.
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for anchor links
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        });
+// Fade-in animation on scroll
+function revealOnScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    const windowHeight = window.innerHeight;
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < windowHeight - 60) {
+            el.classList.add('visible');
+        }
     });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-    // Form submission handling
-    const form = document.querySelector('#contact-form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
+// Smooth scroll for nav links
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
             e.preventDefault();
-            const formData = new FormData(form);
-            // Here you can handle the form data, e.g., send it to a server
-            console.log('Form submitted:', Object.fromEntries(formData));
-            form.reset(); // Reset the form after submission
-        });
-    }
-
-    // Example of a simple animation on portfolio items
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    portfolioItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.classList.add('hover');
-        });
-        item.addEventListener('mouseleave', () => {
-            item.classList.remove('hover');
-        });
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
     });
+});
+
+// Contact form handler (demo only)
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('form-message').textContent = "Thank you for reaching out! We'll get back to you soon.";
+    this.reset();
 });
