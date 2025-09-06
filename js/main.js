@@ -1,31 +1,54 @@
-// Fade-in animation on scroll
-function revealOnScroll() {
-    const elements = document.querySelectorAll('.fade-in');
-    const windowHeight = window.innerHeight;
-    elements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < windowHeight - 60) {
-            el.classList.add('visible');
-        }
-    });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+// Navigation Toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-// Smooth scroll for nav links
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
+navToggle?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 });
 
-// Contact form handler (demo only)
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+// Form Validation
+const contactForm = document.getElementById('contact-form');
+contactForm?.addEventListener('submit', function(e) {
     e.preventDefault();
-    document.getElementById('form-message').textContent = "Thank you for reaching out! We'll get back to you soon.";
-    this.reset();
+    // Add your form submission logic here
+    console.log('Form submitted');
 });
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe elements with animation classes
+document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+    observer.observe(el);
+});
+
+// Respect reduced motion preferences
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.style.setProperty('--transition', 'none');
+}
